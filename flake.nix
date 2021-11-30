@@ -29,5 +29,9 @@
             (pkgs.terraform.withPlugins (plugins: [ plugins.hydra ]))
           ];
         });
+
+      packages = forAllSystems ({ pkgs, system, ... }: {
+        hydra-minio = import ./hydra-minio.nix { inherit pkgs; } { inherit pkgs system; };
+      });
     };
 }
