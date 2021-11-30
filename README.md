@@ -10,5 +10,5 @@ the behavior.
 ## Usage
 
 ```
-nix-build ./hydra-minio.nix
+nix build .#hydra-minio
 ```
