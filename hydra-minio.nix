@@ -1,10 +1,9 @@
+{ pkgs }:
 let
-  nixpkgs = ../.;
-
   accessKey = "BKIKJAA5BMMU2RHO6IBB";
   secretKey = "V7f1CwQqAcwo80UEIJEjc5gVQUSSx5ohQ9GSrr12";
 in
-import "${nixpkgs}/nixos/tests/make-test-python.nix" ({ pkgs, ... }: {
+import "${pkgs.path}/nixos/tests/make-test-python.nix" ({ pkgs, ... }: {
   name = "hydra-migrate-local-to-minio";
   meta.maintainers = pkgs.lib.teams.determinatesystems.members;
 
@@ -96,5 +95,3 @@ import "${nixpkgs}/nixos/tests/make-test-python.nix" ({ pkgs, ... }: {
     machine.fail("systemd-cat mc stat " + minio_narinfo_for_store_path(first_variable_output))
   '';
 })
-
-
